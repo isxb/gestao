@@ -12,13 +12,12 @@ if (!defined('BASE_URL')) exit;
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <style>
-        /* Adicione o CSS de cores Reframax aqui se não estiver no style.css */
-        /* Cores que remetem à empresa Reframax (tons industriais: cinza, azul escuro e laranja) */
-        /* O seu CSS já está usando um azul escuro de fundo (#0b1a37) e #3498db/FF6600 para destaque. */
-    </style>
+    <script src="<?= BASE_URL ?>script.js" defer></script>
+
 </head>
 <body class="login-page">
+    
+    <canvas id="shieldCanvas"></canvas>
 
     <div class="login-wrapper">
         
@@ -46,11 +45,10 @@ if (!defined('BASE_URL')) exit;
             endif; 
             ?>
 
-            <form action="<?= BASE_URL ?>login" method="POST">
-                
-                <div class="form-group">
+            <form action="<?= BASE_URL ?>login" method="POST" id="loginForm"> <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="seu.usuario@reframax.com.br" required value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                    <div id="emailErrorMessage" class="field-error-message"></div>
                 </div>
 
                 <div class="form-group">
