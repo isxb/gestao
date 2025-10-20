@@ -121,7 +121,7 @@ class Movimentacao {
             $params[':tipo'] = $filters['tipo'];
         }
         
-        // Consulta base para o histórico
+        // Consulta base para o 
         $sql = "SELECT 
                     m.*, 
                     c.nome AS colaborador_nome, c.matricula, c.funcao, 
