@@ -59,17 +59,20 @@ spl_autoload_register(function ($class_name) {
 
 
 // --------------------------------------------------------------
-// 2. Roteamento (Router Simples) - O restante do código permanece.
+// 2. Roteamento (Router Simples) - CORRIGIDO
 // --------------------------------------------------------------
 
+// Remove a URL base (BASE_URL) da URI para simplificar o roteamento
 $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
-// A BASE_URL deve ser uma barra '/'
-$base_path = trim(parse_url(BASE_URL, PHP_URL_PATH), '/');
-
-// Remove a BASE_URL do início, se existir (útil para subdiretórios, mas não se for '/')
-if (!empty($base_path) && strpos($uri, $base_path) === 0) {
-    $uri = substr($uri, strlen($base_path));
+// O código abaixo garante que a rota seja limpa, ignorando a lógica de base_path complexa
+// pois presumimos que BASE_URL é apenas '/'
+if (BASE_URL !== '/') {
+    // Lógica para subdiretório (apenas em caso de BASE_URL ser algo como '/gestao/')
+    $base_path = trim(parse_url(BASE_URL, PHP_URL_PATH), '/');
+    if (!empty($base_path) && strpos($uri, $base_path) === 0) {
+        $uri = substr($uri, strlen($base_path));
+    }
 }
 $uri = trim($uri, '/');
 
