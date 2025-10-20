@@ -9,7 +9,8 @@
 date_default_timezone_set('America/Sao_Paulo');
 
 // Define a URL base do seu projeto (MUDAR PARA SEU AMBIENTE DE PRODUÇÃO)
-define('BASE_URL', 'gestao.reframax.app.br/public');
+// CORRIGIDO: Deve ser apenas '/' se o domínio aponta para a pasta public/
+define('BASE_URL', '/');
 
 // ------------------------------------------------------------------
 // Configurações do Banco de Dados (MySQL)
