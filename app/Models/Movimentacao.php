@@ -103,14 +103,22 @@ class Movimentacao {
         $where = " WHERE 1=1 ";
         $params = [];
         
-        // Exemplo: Filtro por intervalo de datas de movimentação
+        // Filtro por intervalo de datas de movimentação
         if (!empty($filters['data_min'])) {
             $where .= " AND m.data_movimentacao >= :data_min";
             $params[':data_min'] = $filters['data_min'];
         }
         if (!empty($filters['data_max'])) {
+            // Adiciona 1 dia (23:59:59) para incluir o dia inteiro no filtro de data_max
+            $data_max_end_of_day = $filters['data_max'] . ' 23:59:59';
             $where .= " AND m.data_movimentacao <= :data_max";
-            $params[':data_max'] = $filters['data_max'];
+            $params[':data_max'] = $data_max_end_of_day;
+        }
+        
+        // FILTRO: Tipo de Movimentação
+        if (!empty($filters['tipo'])) {
+            $where .= " AND m.tipo_movimentacao = :tipo";
+            $params[':tipo'] = $filters['tipo'];
         }
         
         // Consulta base para o histórico

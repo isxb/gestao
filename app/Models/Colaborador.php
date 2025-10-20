@@ -10,6 +10,59 @@ class Colaborador {
 
     // --- FUNÇÕES DE LISTAGEM E FILTROS ---
 
+    // ... (Métodos getAllWithFilters, getDistinctFuncoes, getByMatricula)
+
+    // --- FUNÇÕES DE DASHBOARD (IMPLEMENTADAS) ---
+
+    /**
+     * Retorna a contagem total de colaboradores ativos e inativos.
+     */
+    public function getTotalAtivos() {
+        $sql = "SELECT 
+                    SUM(CASE WHEN status = 'Ativo' THEN 1 ELSE 0 END) AS ativos,
+                    SUM(CASE WHEN status != 'Ativo' THEN 1 ELSE 0 END) AS inativos
+                FROM colaboradores";
+        $stmt = $this->db->query($sql);
+        return $stmt->fetch() ?? ['ativos' => 0, 'inativos' => 0];
+    }
+
+    /**
+     * Retorna a distribuição do efetivo por Centro de Custo.
+     */
+    public function getDistribuicaoPorCC() {
+        $sql = "SELECT 
+                    cc.sigla_cc AS label, 
+                    COUNT(c.matricula) AS value
+                FROM colaboradores c
+                JOIN ccustos cc ON c.id_cc_atual = cc.id_cc
+                WHERE c.status = 'Ativo'
+                GROUP BY cc.sigla_cc
+                ORDER BY value DESC";
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchAll();
+    }
+    
+    /**
+     * Retorna a contagem de movimentações do mês atual.
+     * @param string $monthYear Ex: '2023-10'
+     */
+    public function getMovimentacoesMensais($monthYear) {
+        $sql = "SELECT 
+                    SUM(CASE WHEN tipo_movimentacao = 'Admissão' THEN 1 ELSE 0 END) AS contratacoes,
+                    SUM(CASE WHEN tipo_movimentacao = 'Desligamento' THEN 1 ELSE 0 END) AS desligamentos,
+                    SUM(CASE WHEN tipo_movimentacao = 'Transferência' THEN 1 ELSE 0 END) AS transferencias
+                FROM movimentacoes
+                WHERE DATE_FORMAT(data_movimentacao, '%Y-%m') = :month_year
+                  AND status_aprovacao = 'Aprovada'"; // Considera apenas as aprovadas/finalizadas
+        
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':month_year', $monthYear, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch() ?? ['contratacoes' => 0, 'desligamentos' => 0, 'transferencias' => 0];
+    }
+
+    // --- FUNÇÕES DE CRUD ---
+    
     /**
      * Retorna todos os colaboradores com filtros avançados e paginação.
      * @param array $filters Filtros GET (funcao, status, cc, datas, etc.)
@@ -95,8 +148,6 @@ class Colaborador {
         $stmt = $this->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
     }
-
-    // --- FUNÇÕES DE CRUD ---
 
     /**
      * Busca um colaborador pela matrícula.
@@ -237,7 +288,4 @@ class Colaborador {
             ':user_id' => $userId
         ]);
     }
-    
-    // --- Funções de Dashboard já implementadas (getTotalAtivos, getDistribuicaoPorCC, etc.) ---
-    // ...
 }

@@ -8,9 +8,29 @@ class Usuario {
         $this->db = Database::getInstance()->getConnection(); 
     }
 
-    // --- FUNÇÕES DE AUTENTICAÇÃO (MANTIDAS) ---
-    // public function findByEmail($email) { ... }
-    // public function getLiberatedCCs($userId) { ... }
+    // --- FUNÇÕES DE AUTENTICAÇÃO (IMPLEMENTADAS) ---
+    /**
+     * Busca um usuário pelo e-mail (para login).
+     */
+    public function findByEmail($email) {
+        $sql = "SELECT * FROM usuarios WHERE email = :email";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+    
+    /**
+     * Retorna a lista de IDs de Centros de Custo liberados para o usuário.
+     */
+    public function getLiberatedCCs($userId) {
+        $sql = "SELECT id_cc FROM usuario_cc_liberado WHERE id_usuario = :user_id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        // Retorna apenas os IDs em um array simples para verificação (e.g., in_array)
+        return $stmt->fetchAll(PDO::FETCH_COLUMN, 0); 
+    }
 
 
     // --- FUNÇÕES DE GERENCIAMENTO (CRUD) ---
