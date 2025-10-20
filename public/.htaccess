@@ -1,0 +1,13 @@
+# public/.htaccess
+
+<IfModule mod_rewrite.c>
+    # Ativa o motor de reescrita
+    RewriteEngine On
+    
+    # 1. Se a requisição não for para um arquivo real no disco
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # 2. E se a requisição não for para um diretório real no disco
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # 3. Redireciona TUDO para o index.php
+    RewriteRule ^(.*)$ index.php [L]
+</IfModule>
