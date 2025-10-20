@@ -1,0 +1,21 @@
+{
+    "name": "reframax/sistema-gestivo",
+    "description": "Sistema de gestão de efetivo e movimentação de colaboradores Reframax.",
+    "type": "project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "app/Controllers/",
+            "App\\Models\\": "app/Models/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+        ]
+    }
+}

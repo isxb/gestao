@@ -1,0 +1,564 @@
+/*
+ * style.css
+ * -----------------------------------------------------
+ * Tema: Reframax - Industrial Dark Theme
+ * Cores: Azul Escuro (#0b1a37), Cinza, Laranja (#FF6600)
+ * -----------------------------------------------------
+ */
+
+/* =========================================================
+   1. ESTILOS GERAIS E LAYOUT PADRÃO
+   ========================================================= */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+    background-color: #0b1a37; /* Azul Escuro Industrial */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease;
+}
+
+/* Fundo para mensagens de erro */
+body.script-error-bg, body.email-error-bg, body.general-error-bg {
+    background-color: #58181F;
+}
+
+/* Links globais */
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #FF6600; /* Laranja de destaque */
+}
+
+/* =========================================================
+   2. ESTILOS DE AUTENTICAÇÃO E FORMULÁRIOS
+   ========================================================= */
+
+/* Wrapper para páginas de login/setup */
+.form-page-wrapper {
+    background: linear-gradient(135deg, rgba(17, 28, 52, 0.75), rgba(17, 28, 52, 0.6));
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    width: 100%;
+    max-width: 500px;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-page-wrapper h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+.form-page-wrapper .form-instructions {
+    font-size: 14px;
+    color: #bdc3c7;
+    margin-bottom: 25px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    text-align: left;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #bdc3c7;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #2a528a; /* Azul marinho/Cinza escuro */
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+}
+
+/* Botão de Ação Primária (Geral) */
+.btn-primary-action {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    background-color: #2980b9; /* Azul Padrão */
+    color: white;
+    text-align: center;
+}
+.btn-primary-action:hover {
+    background-color: #3498db;
+}
+
+/* Mensagens de Feedback (TOPO) */
+.message-feedback {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9em;
+    width: 100%;
+    box-sizing: border-box;
+}
+.message-feedback.error {
+    background-color: rgba(231, 76, 60, 0.15);
+    border: 1px solid rgba(231, 76, 60, 0.4);
+    color: #e74c3c;
+}
+.message-feedback.success {
+    background-color: rgba(46, 204, 113, 0.15);
+    border: 1px solid rgba(46, 204, 113, 0.4);
+    color: #2ecc71;
+}
+
+/* Estilos da Página de Login (para o print) */
+body.login-page {
+    overflow: hidden;
+    /* Ajusta o body para garantir que o wrapper esteja centralizado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.login-wrapper {
+    background: linear-gradient(135deg, rgba(17, 28, 52, 0.65), rgba(17, 28, 52, 0.5));
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 850px;
+    width: 90%;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.shield-column {
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.form-column h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #3498db; /* Azul no Título */
+    text-align: left;
+}
+.form-column .welcome-text {
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: #bdc3c7;
+    line-height: 1.5;
+    max-width: 350px;
+    text-align: left;
+}
+.login-form-error-general {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    font-size: 0.9em;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+.form-options .remember-me {
+    display: flex;
+    align-items: center;
+    color: #bdc3c7;
+}
+.form-options .remember-me input[type="checkbox"] {
+    margin-right: 6px;
+    accent-color: #3498db;
+}
+.form-options a {
+    color: #7f8c8d;
+    text-decoration: none;
+}
+.form-options a:hover {
+    color: #FF6600; /* Laranja Reframax no hover */
+    text-decoration: underline;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+}
+.form-buttons button {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.btn-primary { /* Botão Iniciar */
+    background-color: #FF6600; /* Laranja Reframax */
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #e65c00;
+}
+.btn-secondary { /* Botão Registrar-se */
+    background-color: transparent;
+    color: #e0e0e0;
+    border: 1px solid #3498db;
+}
+.btn-secondary:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* =========================================================
+   3. LAYOUT DE DASHBOARD (Sidebar e Conteúdo Principal)
+   ========================================================= */
+
+body.dashboard-page {
+    display: flex; /* Habilita layout com sidebar */
+    overflow-x: hidden;
+    padding: 0; /* Remove padding do body padrão */
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 260px;
+    background-color: #0d1f33; /* Fundo do sidebar */
+    padding: 20px 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -260px; /* Escondido por padrão em mobile */
+    z-index: 1001;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 3px 0px 10px rgba(0,0,0,0.2);
+    overflow-y: auto;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-header {
+    padding: 0 20px 20px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.sidebar-header .logo-sidebar {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF6600; /* Laranja no logo */
+    text-decoration: none;
+    display: block;
+}
+.sidebar-header .user-greeting-sidebar {
+    font-size: 14px;
+    color: #bdc3c7;
+    margin-top: 8px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active-link {
+    background-color: rgba(255, 102, 0, 0.1); /* Laranja com transparência */
+    color: #FF6600;
+    border-left-color: #FF6600;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* NAVBAR */
+.navbar-dashboard {
+    background-color: rgba(17, 28, 52, 0.95);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+.navbar-dashboard .nav-left {
+    display:flex;
+    align-items:center;
+}
+.menu-toggle {
+    color: #e0e0e0;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+    display: none;
+}
+.navbar-dashboard .logo-main {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+.navbar-dashboard .nav-links-main {
+    display: flex;
+    align-items: center;
+}
+.navbar-dashboard .nav-links-main .user-info-nav {
+    color: #bdc3c7;
+    margin-right: 20px;
+    font-size: 14px;
+}
+.navbar-dashboard .nav-links-main a {
+    color: #bdc3c7;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+.navbar-dashboard .nav-links-main a:hover {
+    color: #FF6600;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.main-content {
+    flex-grow: 1;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    transition: padding-left 0.3s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Overlay para fechar sidebar em telas menores */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+.sidebar-overlay.active {
+    display: block;
+}
+
+
+/* =========================================================
+   4. ESTILOS DE COMPONENTES (Cards, Tabelas, Gráficos)
+   ========================================================= */
+
+/* Card para Gráficos e Tabelas */
+.card-chart {
+    background-color: #0d1f33;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-height: 200px;
+}
+
+/* Indicadores Chave (KPIs) */
+.card-kpi {
+    background-color: #0d1f33; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-left: 5px solid #3498db;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+.card-kpi:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.card-kpi .kpi-value {
+    font-size: 38px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 5px 0;
+}
+.card-kpi .kpi-label {
+    font-size: 14px;
+    color: #bdc3c7;
+    text-transform: uppercase;
+}
+.kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Grid de Gráficos */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Estilos de Tabela */
+.table th, .table td {
+    padding: 10px;
+    text-align: left;
+}
+.table thead tr {
+    background-color: #173859;
+}
+.table tbody tr {
+    border-bottom: 1px solid #2a528a;
+    transition: background-color 0.2s;
+}
+.table tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+/* Botões menores para tabela/ação */
+.btn-small {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.btn-small:hover {
+    opacity: 0.8;
+}
+
+/* =========================================================
+   5. RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 992px) {
+    /* Layout Geral */
+    .menu-toggle {
+        display: block; /* Mostra o ícone de hamburguer */
+    }
+    .main-content {
+        padding-left: 20px; /* Redefine padding quando a sidebar está escondida */
+        width: 100%;
+    }
+    .navbar-dashboard {
+        left: 0;
+        width: 100% !important;
+    }
+    .grid-2-col {
+        grid-template-columns: 1fr; /* Stack em telas menores */
+    }
+    .login-wrapper {
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+        max-width: 95%;
+    }
+    .shield-column {
+        display: none; /* Esconde o logo em mobile para economizar espaço */
+    }
+    .form-column h1, .form-column .welcome-text {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .form-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 993px) {
+    .sidebar {
+        left: 0; /* Sidebar visível por padrão em desktop */
+    }
+    .main-content {
+        padding-left: 280px; /* Ajusta o conteúdo para a direita da sidebar */
+    }
+    .navbar-dashboard {
+        left: 260px;
+        width: calc(100% - 260px);
+    }
+}
