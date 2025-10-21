@@ -1,9 +1,20 @@
-/* style.css - (Consolidado com o padrão de design corporativo) */
+/*
+ * style.css
+ * -----------------------------------------------------
+ * Tema: Reframax - Industrial Dark Theme
+ * Cores: Azul Escuro (#0b1a37), Cinza, Laranja (#FF6600)
+ * -----------------------------------------------------
+ */
+
+/* =========================================================
+   1. ESTILOS GERAIS E LAYOUT PADRÃO
+   ========================================================= */
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #e0e0e0;
-    background-color: #0b1a37;
+    background-color: #0b1a37; /* Azul Escuro Industrial */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +38,11 @@ a:hover {
     color: #FF6600; /* Laranja de destaque */
 }
 
-/* --- ESTILOS DE AUTENTICAÇÃO E FORMULÁRIOS --- */
+/* =========================================================
+   2. ESTILOS DE AUTENTICAÇÃO E FORMULÁRIOS
+   ========================================================= */
+
+/* Wrapper para páginas de login/setup */
 #shieldCanvas {
     position: fixed;
     top: 0;
@@ -208,7 +223,38 @@ body.login-page {
     color: #3498db;
 }
 
-/* --- LAYOUT DE DASHBOARD (Sidebar e Conteúdo Principal) --- */
+/* --- ESTILOS PARA IMAGENS DE LOGO --- */
+.logo-login-shield {
+    max-width: 100%;
+    height: auto;
+    max-height: 120px; /* Tamanho da logo na coluna lateral do login */
+}
+
+.logo-image-navbar {
+    height: 30px; /* Altura padrão para navbar */
+    width: auto;
+}
+
+.logo-image-sidebar {
+    height: 40px; /* Um pouco maior para o sidebar */
+    width: auto;
+}
+
+/* Esconde o texto do logo onde a imagem está sendo usada */
+.navbar-dashboard .logo-main {
+    /* Remove o estilo de fonte/tamanho para não afetar o layout da imagem */
+    font-size: 0; 
+    line-height: 0;
+}
+.sidebar-header .logo-sidebar {
+    /* Remove o estilo de fonte/tamanho para não afetar o layout da imagem */
+    font-size: 0;
+    line-height: 0;
+}
+
+/* =========================================================
+   3. LAYOUT DE DASHBOARD (Sidebar e Conteúdo Principal)
+   ========================================================= */
 
 body.dashboard-page {
     display: flex;
@@ -240,11 +286,8 @@ body.dashboard-page {
     margin-bottom: 20px;
 }
 
+/* Estilo do link (logo-sidebar) ajustado, a imagem tem seu próprio estilo */
 .sidebar-header .logo-sidebar {
-    font-size: 24px;
-    font-weight: bold;
-    color: #FF6600;
-    text-decoration: none;
     display: block;
 }
 

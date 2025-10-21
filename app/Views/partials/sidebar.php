@@ -8,7 +8,9 @@ $userAccessLevel = $_SESSION['access_level'] ?? 'Colaborador';
 
 <nav id="sidebar" class="sidebar">
     <div class="sidebar-header">
-        <a href="<?= BASE_URL ?>dashboard" class="logo-sidebar">REFRAMAX</a>
+        <a href="<?= BASE_URL ?>dashboard" class="logo-sidebar">
+            <img src="<?= BASE_URL ?>images/logo_reframax.png" alt="Reframax Logo" class="logo-image-sidebar">
+        </a>
         <p class="user-greeting-sidebar">Bem-vindo(a), <?= explode(' ', $_SESSION['user_name'])[0] ?>!</p>
     </div>
 

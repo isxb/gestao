@@ -6,7 +6,9 @@ if (!defined('BASE_URL')) exit;
 <header class="navbar-dashboard">
     <div class="nav-left">
         <i id="menu-toggle" class="fas fa-bars menu-toggle"></i>
-        <a href="<?= BASE_URL ?>dashboard" class="logo-main">SISTEMA GESTIVO</a>
+        <a href="<?= BASE_URL ?>dashboard" class="logo-main">
+            <img src="<?= BASE_URL ?>images/logo_reframax.png" alt="Reframax Logo" class="logo-image-navbar">
+        </a>
     </div>
 
     <div class="nav-links-main">

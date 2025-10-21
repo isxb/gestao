@@ -12,7 +12,7 @@ if (!defined('BASE_URL')) exit;
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <script src="<?= BASE_URL ?>script.js" defer></script>
+    <script src="<?= BASE_URL ?>js/script.js" defer></script>
 
 </head>
 <body class="login-page">
@@ -23,10 +23,10 @@ if (!defined('BASE_URL')) exit;
         
         <div class="shield-column">
             <div style="text-align: center;">
-                <h2 style="color: white; font-size: 32px; font-weight: 700; margin-bottom: 5px;">REFRAMAX</h2>
-                <p style="color: #FF6600; font-size: 14px; letter-spacing: 5px;">SISTEMA GESTIVO</p>
-                </div>
+                <img src="<?= BASE_URL ?>images/logo_reframax.png" alt="Reframax Logo" class="logo-login-shield">
+                <p style="color: #FF6600; font-size: 14px; letter-spacing: 5px; margin-top: 10px;">SISTEMA GESTIVO</p>
             </div>
+        </div>
 
         <div class="form-column">
             <h1 style="color: #3498db;">Portal de Acesso</h1>
@@ -45,7 +45,9 @@ if (!defined('BASE_URL')) exit;
             endif; 
             ?>
 
-            <form action="<?= BASE_URL ?>login" method="POST" id="loginForm"> <div class="form-group">
+            <form action="<?= BASE_URL ?>login" method="POST" id="loginForm"> 
+                
+                <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="seu.usuario@reframax.com.br" required value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
                     <div id="emailErrorMessage" class="field-error-message"></div>
