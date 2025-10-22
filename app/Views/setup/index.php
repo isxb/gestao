@@ -11,7 +11,7 @@
 </head>
 <body class="login-page">
     <div class="form-page-wrapper" style="max-width: 600px;">
-        <h1><span style="color: #FF6600;">Reframax</span> - Configuração Inicial</h1>
+        <h1><span style="color: #3498db;">Reframax</span> - Configuração Inicial</h1>
         <p class="form-instructions">
             Bem-vindo! Para prosseguir, insira as credenciais do banco de dados (que já deve estar criado) e crie sua conta de Administrador mestre.
         </p>
@@ -43,8 +43,8 @@
                 </div>
             </fieldset>
 
-            <fieldset style="border: 1px solid #FF6600; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                <legend style="color: #FF6600; font-weight: 600; padding: 0 10px;">Conta de Administrador Mestre</legend>
+            <fieldset style="border: 1px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <legend style="color: #3498db; font-weight: 600; padding: 0 10px;">Conta de Administrador Mestre</legend>
                 
                 <div class="form-group">
                     <label for="admin_nome">Seu Nome</label>
@@ -60,7 +60,7 @@
                 </div>
             </fieldset>
 
-            <button type="submit" class="btn-primary-action" style="background-color: #FF6600;">
+            <button type="submit" class="btn-primary-action" style="background-color: #3498db;">
                 <i class="fas fa-hammer"></i> Instalar e Iniciar
             </button>
         </form>

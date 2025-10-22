@@ -21,14 +21,14 @@ $userAccessLevel = $_SESSION['access_level'] ?? 'Colaborador';
             </a>
         </li>
         <li>
-            <a href="<?= BASE_URL ?>colaboradores" class="<?= strpos($_SERVER['REQUEST_URI'], 'colaboradores') !== false ? 'active-link' : '' ?>">
+            <a href="<?= BASE_URL ?>colaborador" class="<?= strpos($_SERVER['REQUEST_URI'], 'colaborador') !== false ? 'active-link' : '' ?>">
                 <i class="fas fa-users"></i> Colaboradores
             </a>
         </li>
         
         <?php if ($userAccessLevel == 'Admin' || $userAccessLevel == 'RH' || $userAccessLevel == 'Gestor'): ?>
         <li>
-            <a href="<?= BASE_URL ?>movimentacoes" class="<?= strpos($_SERVER['REQUEST_URI'], 'movimentacoes') !== false ? 'active-link' : '' ?>">
+            <a href="<?= BASE_URL ?>movimentacao" class="<?= strpos($_SERVER['REQUEST_URI'], 'movimentacao') !== false ? 'active-link' : '' ?>">
                 <i class="fas fa-exchange-alt"></i> Transferências
             </a>
         </li>
@@ -36,7 +36,7 @@ $userAccessLevel = $_SESSION['access_level'] ?? 'Colaborador';
 
         <?php if ($userAccessLevel == 'Admin' || $userAccessLevel == 'RH'): ?>
         <li>
-            <a href="<?= BASE_URL ?>usuarios" class="<?= strpos($_SERVER['REQUEST_URI'], 'usuarios') !== false ? 'active-link' : '' ?>">
+            <a href="<?= BASE_URL ?>usuario" class="<?= strpos($_SERVER['REQUEST_URI'], 'usuario') !== false ? 'active-link' : '' ?>">
                 <i class="fas fa-user-shield"></i> Usuários
             </a>
         </li>
@@ -49,7 +49,7 @@ $userAccessLevel = $_SESSION['access_level'] ?? 'Colaborador';
         
         <?php if ($userAccessLevel == 'Admin' || $userAccessLevel == 'RH' || $userAccessLevel == 'Gestor'): ?>
         <li>
-            <a href="<?= BASE_URL ?>relatorios" class="<?= strpos($_SERVER['REQUEST_URI'], 'relatorios') !== false ? 'active-link' : '' ?>">
+            <a href="<?= BASE_URL ?>rh/relatorios" class="<?= strpos($_SERVER['REQUEST_URI'], 'relatorios') !== false ? 'active-link' : '' ?>">
                 <i class="fas fa-chart-pie"></i> Relatórios
             </a>
         </li>

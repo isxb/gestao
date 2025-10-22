@@ -10,7 +10,7 @@ $buttonText = $isEditing ? 'Salvar Alterações' : 'Cadastrar C.C.';
 $currentStatus = $ccusto['status'] ?? 'Ativo';
 ?>
 
-<h1 style="color: #FF6600;"><?= $pageTitle ?></h1>
+<h1 style="color: #3498db;"><?= $pageTitle ?></h1>
 
 <div class="card-chart" style="max-width: 500px; margin: 0 auto;">
     <form action="<?= BASE_URL ?>ccusto/salvar" method="POST">
@@ -38,7 +38,7 @@ $currentStatus = $ccusto['status'] ?? 'Ativo';
         </div>
 
         <div class="form-buttons" style="margin-top: 20px;">
-            <button type="submit" class="btn-primary-action" style="background-color: #FF6600;">
+            <button type="submit" class="btn-primary-action" style="background-color: #3498db;">
                 <i class="fas fa-save"></i> <?= $buttonText ?>
             </button>
             <a href="<?= BASE_URL ?>ccusto" class="btn-secondary" style="text-decoration: none; text-align: center; border: 1px solid #7f8c8d; color: #7f8c8d; padding: 12px 15px;">

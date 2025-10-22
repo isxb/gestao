@@ -9,10 +9,10 @@ $pageTitle = $isEditing ? 'Editar Colaborador: ' . htmlspecialchars($colaborador
 $buttonText = $isEditing ? 'Salvar Alterações' : 'Cadastrar Colaborador';
 ?>
 
-<h1 style="color: #FF6600;"><?= $pageTitle ?></h1>
+<h1 style="color: #3498db;"><?= $pageTitle ?></h1>
 
 <div class="card-chart" style="max-width: 800px; margin: 0 auto;">
-    <form action="<?= BASE_URL ?>colaboradores/salvar" method="POST">
+    <form action="<?= BASE_URL ?>colaborador/salvar" method="POST">
         
         <?php if ($isEditing): ?>
             <input type="hidden" name="matricula" value="<?= htmlspecialchars($colaborador['matricula']) ?>">
@@ -59,8 +59,8 @@ $buttonText = $isEditing ? 'Salvar Alterações' : 'Cadastrar Colaborador';
             </div>
         </fieldset>
 
-        <fieldset style="border: 1px solid #FF6600; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <legend style="color: #FF6600; font-weight: 600; padding: 0 10px;">Centro de Custo e Status</legend>
+        <fieldset style="border: 1px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+            <legend style="color: #3498db; font-weight: 600; padding: 0 10px;">Centro de Custo e Status</legend>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                 <div class="form-group">
@@ -99,10 +99,10 @@ $buttonText = $isEditing ? 'Salvar Alterações' : 'Cadastrar Colaborador';
         </fieldset>
         
         <div class="form-buttons">
-            <button type="submit" class="btn-primary-action" style="background-color: #FF6600;">
+            <button type="submit" class="btn-primary-action" style="background-color: #3498db;">
                 <i class="fas fa-save"></i> <?= $buttonText ?>
             </button>
-            <a href="<?= BASE_URL ?>colaboradores" class="btn-secondary" style="text-decoration: none; text-align: center; border: 1px solid #7f8c8d; color: #7f8c8d; padding: 12px 15px;">
+            <a href="<?= BASE_URL ?>colaborador" class="btn-secondary" style="text-decoration: none; text-align: center; border: 1px solid #7f8c8d; color: #7f8c8d; padding: 12px 15px;">
                 <i class="fas fa-times"></i> Cancelar
             </a>
         </div>

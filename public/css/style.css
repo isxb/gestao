@@ -2,7 +2,7 @@
  * style.css
  * -----------------------------------------------------
  * Tema: Reframax - Industrial Dark Theme
- * Cores: Azul Escuro (#0b1a37), Cinza, Laranja (#FF6600)
+ * Cores: Azul Escuro (#0b1a37), Cinza, Azul de Destaque (#3498db)
  * -----------------------------------------------------
  */
 
@@ -35,7 +35,7 @@ a {
     transition: color 0.2s;
 }
 a:hover {
-    color: #FF6600; /* Laranja de destaque */
+    color: #ffffff; /* Destaque Branco no hover */
 }
 
 /* =========================================================
@@ -183,10 +183,10 @@ body.login-page {
 
 /* Botões do Login */
 .btn-primary { 
-    background-color: #FF6600; 
+    background-color: #3498db; /* AZUL NO LUGAR DO LARANJA */
 }
 .btn-primary:hover {
-    background-color: #e65c00;
+    background-color: #2980b9; /* AZUL MAIS ESCURO NO HOVER */
 }
 .btn-secondary {
     background-color: transparent;
@@ -306,9 +306,9 @@ body.dashboard-page {
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active-link {
-    background-color: rgba(255, 102, 0, 0.1);
-    color: #FF6600;
-    border-left-color: #FF6600;
+    background-color: rgba(52, 152, 219, 0.1); /* AZUL CLARO TRANSPARENTE */
+    color: #3498db; /* AZUL DE DESTAQUE */
+    border-left-color: #3498db; /* AZUL DE DESTAQUE */
 }
 
 .navbar-dashboard {
@@ -367,6 +367,18 @@ body.dashboard-page {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     min-height: 200px;
 }
+/* CORREÇÃO DO SCROLL INFINITO PARA GRÁFICOS */
+.card-chart.chart-container {
+    height: 400px; /* Altura fixa para o contêiner do gráfico */
+    display: flex; 
+    flex-direction: column;
+}
+.card-chart.chart-container canvas {
+    /* Garante que o canvas ocupe o espaço restante */
+    flex-grow: 1;
+    max-height: 100%;
+}
+
 .card-kpi {
     background-color: #0d1f33; 
     padding: 20px;

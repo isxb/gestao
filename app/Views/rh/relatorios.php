@@ -5,7 +5,7 @@ if (!defined('BASE_URL')) exit;
 require_once(VIEW_PATH . 'partials/header.php');
 ?>
 
-<h1 style="color: #FF6600;">Auditoria e Relatórios de Movimentação</h1>
+<h1 style="color: #3498db;">Auditoria e Relatórios de Movimentação</h1>
 
 <div class="card-chart" style="margin-bottom: 20px;">
     <h3 style="color: #bdc3c7; margin-top: 0;">Filtros de Auditoria</h3>
@@ -77,7 +77,7 @@ require_once(VIEW_PATH . 'partials/header.php');
                 <tr style="border-bottom: 1px solid #2a528a; font-size: 0.9em;">
                     <td style="padding: 10px;"><?= htmlspecialchars($item['matricula']) ?></td>
                     <td style="padding: 10px; font-weight: 600;"><?= htmlspecialchars($item['colaborador_nome']) ?></td>
-                    <td style="padding: 10px; color: #FF6600;">
+                    <td style="padding: 10px; color: #3498db;">
                         <?= htmlspecialchars($item['cc_origem_sigla'] ?? 'N/A') ?> 
                         <i class="fas fa-arrow-right" style="font-size: 0.8em; margin: 0 5px; color: #7f8c8d;"></i> 
                         <?= htmlspecialchars($item['cc_destino_sigla'] ?? 'N/A') ?>

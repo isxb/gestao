@@ -13,7 +13,7 @@ if (isset($_SESSION['feedback'])) {
 }
 ?>
 
-<h1 style="color: #FF6600;">RH: Aprovação de Transferências Pendentes</h1>
+<h1 style="color: #3498db;">RH: Aprovação de Transferências Pendentes</h1>
 
 <div class="card-chart" style="overflow-x: auto; padding: 10px;">
     
@@ -39,7 +39,7 @@ if (isset($_SESSION['feedback'])) {
                     <td style="padding: 10px; font-weight: 600;"><?= htmlspecialchars($pendencia['id_mov']) ?></td>
                     <td style="padding: 10px;"><?= htmlspecialchars($pendencia['colaborador_nome']) ?> (Mat: <?= htmlspecialchars($pendencia['matricula']) ?>)</td>
                     <td style="padding: 10px; color: #7f8c8d;"><?= htmlspecialchars($pendencia['cc_origem_sigla'] ?? 'N/A') ?></td>
-                    <td style="padding: 10px; color: #FF6600; font-weight: 600;"><?= htmlspecialchars($pendencia['cc_destino_sigla']) ?></td>
+                    <td style="padding: 10px; color: #3498db; font-weight: 600;"><?= htmlspecialchars($pendencia['cc_destino_sigla']) ?></td>
                     <td style="padding: 10px; font-size: 0.9em;"><?= date('d/m/Y H:i', strtotime($pendencia['data_movimentacao'])) ?></td>
                     <td style="padding: 10px; font-size: 0.9em;">
                         **Motivo:** <?= htmlspecialchars(substr($pendencia['motivo'], 0, 50)) ?>...<br>

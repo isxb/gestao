@@ -1,6 +1,12 @@
 <?php
 // app/Views/partials/footer.php
 if (!defined('BASE_URL')) exit; 
+
+// Variável global de controle: Se ela já existe, o footer já foi carregado
+if (defined('FOOTER_LOADED')) {
+    return; // Interrompe qualquer tentativa de carregamento duplicado
+}
+define('FOOTER_LOADED', true);
 ?>
     </main>
     <script>

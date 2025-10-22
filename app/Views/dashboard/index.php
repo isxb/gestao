@@ -6,7 +6,7 @@ if (!defined('BASE_URL')) exit;
 require_once(VIEW_PATH . 'partials/header.php');
 ?>
 
-    <h1 style="color: #FF6600;">Dashboard de Efetivo e Movimentação</h1>
+    <h1 style="color: #3498db;">Dashboard de Efetivo e Movimentação</h1>
 
     <div class="kpi-row">
         
@@ -22,8 +22,8 @@ require_once(VIEW_PATH . 'partials/header.php');
             <div class="kpi-label">Contratações (Mês)</div>
         </div>
 
-        <div class="card-kpi" style="border-left-color: #FF6600;">
-            <i class="fas fa-exchange-alt" style="font-size: 24px; color: #FF6600;"></i>
+        <div class="card-kpi" style="border-left-color: #3498db;">
+            <i class="fas fa-exchange-alt" style="font-size: 24px; color: #3498db;"></i>
             <div class="kpi-value"><?= $transferenciasMes ?></div>
             <div class="kpi-label">Transferências (Mês)</div>
         </div>
@@ -37,14 +37,14 @@ require_once(VIEW_PATH . 'partials/header.php');
 
     <div class="grid-2-col">
         
-        <div class="card-chart">
+        <div class="card-chart chart-container">
             <h3 style="color: #ffffff; margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 20px;">
                 Distribuição de Efetivo por C.C.
             </h3>
             <canvas id="chartDistribuicaoCC"></canvas>
         </div>
         
-        <div class="card-chart">
+        <div class="card-chart chart-container">
             <h3 style="color: #ffffff; margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 20px;">
                 Efetivo vs. Vagas Abertas (Exemplo)
             </h3>
@@ -74,7 +74,7 @@ require_once(VIEW_PATH . 'partials/header.php');
                         'rgba(52, 152, 219, 0.8)', // Azul
                         'rgba(46, 204, 113, 0.8)', // Verde
                         'rgba(241, 196, 15, 0.8)', // Amarelo
-                        'rgba(255, 102, 0, 0.8)', // Laranja Reframax
+                        'rgba(52, 152, 219, 0.8)', // AZUL NO LUGAR DO LARANJA (Repete o azul se for a 4a cor)
                         'rgba(155, 89, 182, 0.8)' // Roxo
                     ],
                     hoverOffset: 4
@@ -109,7 +109,7 @@ require_once(VIEW_PATH . 'partials/header.php');
                 }, {
                     label: 'Vagas Ocupadas (Meta)',
                     data: [30, 65, 12, 40],
-                    backgroundColor: 'rgba(255, 102, 0, 0.7)', // Laranja Reframax
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)', // AZUL NO LUGAR DO LARANJA
                 }]
             },
             options: {

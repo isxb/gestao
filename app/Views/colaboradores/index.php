@@ -25,12 +25,12 @@ function getFilterQuery($exclude = []) {
 $canWrite = ($_SESSION['access_level'] == 'Admin' || $_SESSION['access_level'] == 'RH');
 ?>
 
-<h1 style="color: #FF6600;">Gestão de Colaboradores (Efetivo Total: <?= $totalRecords ?>)</h1>
+<h1 style="color: #3498db;">Gestão de Colaboradores (Efetivo Total: <?= $totalRecords ?>)</h1>
 
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
     
     <?php if ($canWrite): ?>
-    <a href="<?= BASE_URL ?>colaboradores/novo" class="btn-primary-action" style="width: auto; padding: 10px 20px; background-color: #2ecc71;">
+    <a href="<?= BASE_URL ?>colaborador/novo" class="btn-primary-action" style="width: auto; padding: 10px 20px; background-color: #2ecc71;">
         <i class="fas fa-user-plus"></i> Novo Colaborador
     </a>
     <?php endif; ?>
@@ -40,7 +40,7 @@ $canWrite = ($_SESSION['access_level'] == 'Admin' || $_SESSION['access_level'] =
         <button class="btn-secondary" style="width: auto; border-color: #3498db; color: #3498db;" onclick="alert('Funcionalidade de Exportação de Excel em desenvolvimento...')">
              <i class="fas fa-file-excel"></i> Exportar
         </button>
-        <button class="btn-secondary" style="width: auto; border-color: #FF6600; color: #FF6600;" onclick="alert('Funcionalidade de Importação de Excel em desenvolvimento...')">
+        <button class="btn-secondary" style="width: auto; border-color: #3498db; color: #3498db;" onclick="alert('Funcionalidade de Importação de Excel em desenvolvimento...')">
              <i class="fas fa-file-upload"></i> Importar
         </button>
     </div>
@@ -49,7 +49,7 @@ $canWrite = ($_SESSION['access_level'] == 'Admin' || $_SESSION['access_level'] =
 
 <div class="card-chart" style="margin-bottom: 20px;">
     <h3 style="color: #bdc3c7; margin-top: 0;">Filtros de Pesquisa (Até 10 Filtros)</h3>
-    <form method="GET" action="<?= BASE_URL ?>colaboradores" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+    <form method="GET" action="<?= BASE_URL ?>colaborador" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
         
         <div class="form-group" style="margin-bottom: 0;">
             <label>Busca Livre (Nome/Matrícula)</label>
@@ -123,7 +123,7 @@ $canWrite = ($_SESSION['access_level'] == 'Admin' || $_SESSION['access_level'] =
                     <td style="padding: 10px;"><?= htmlspecialchars($colab['matricula']) ?></td>
                     <td style="padding: 10px; font-weight: 600;"><?= htmlspecialchars($colab['nome']) ?></td>
                     <td style="padding: 10px;"><?= htmlspecialchars($colab['funcao']) ?></td>
-                    <td style="padding: 10px; color: #FF6600;"><?= htmlspecialchars($colab['sigla_cc']) ?></td>
+                    <td style="padding: 10px; color: #3498db;"><?= htmlspecialchars($colab['sigla_cc']) ?></td>
                     <td style="padding: 10px;"><?= date('d/m/Y', strtotime($colab['data_admissao'])) ?></td>
                     <td style="padding: 10px;">
                         <span style="padding: 4px 8px; border-radius: 4px; font-size: 0.8em; 
@@ -133,10 +133,10 @@ $canWrite = ($_SESSION['access_level'] == 'Admin' || $_SESSION['access_level'] =
                         </span>
                     </td>
                     <td style="padding: 10px; text-align: center;">
-                        <a href="<?= BASE_URL ?>colaboradores/editar/<?= $colab['matricula'] ?>" title="Editar/Movimentar" style="color: #3498db; margin-right: 10px;"><i class="fas fa-edit"></i></a>
+                        <a href="<?= BASE_URL ?>colaborador/editar/<?= $colab['matricula'] ?>" title="Editar/Movimentar" style="color: #3498db; margin-right: 10px;"><i class="fas fa-edit"></i></a>
                         
                         <?php if ($canWrite && $colab['status'] != 'Desligado'): ?>
-                        <a href="<?= BASE_URL ?>colaboradores/excluir/<?= $colab['matricula'] ?>" title="Marcar como Desligado" style="color: #e74c3c;" onclick="return confirm('ATENÇÃO: Deseja realmente marcar este colaborador como DESLIGADO? Essa ação é registrada como movimentação.')">
+                        <a href="<?= BASE_URL ?>colaborador/excluir/<?= $colab['matricula'] ?>" title="Marcar como Desligado" style="color: #e74c3c;" onclick="return confirm('ATENÇÃO: Deseja realmente marcar este colaborador como DESLIGADO? Essa ação é registrada como movimentação.')">
                             <i class="fas fa-user-times"></i>
                         </a>
                         <?php endif; ?>
@@ -152,9 +152,9 @@ $canWrite = ($_SESSION['access_level'] == 'Admin' || $_SESSION['access_level'] =
         $queryString = getFilterQuery(['page']);
         for ($i = 1; $i <= $totalPages; $i++): 
         ?>
-            <a href="<?= BASE_URL ?>colaboradores?<?= $queryString ?>&page=<?= $i ?>" 
+            <a href="<?= BASE_URL ?>colaborador?<?= $queryString ?>&page=<?= $i ?>" 
                style="padding: 8px 12px; margin: 0 5px; border-radius: 4px; text-decoration: none; 
-                      background-color: <?= $currentPage == $i ? '#FF6600' : '#173859' ?>; 
+                      background-color: <?= $currentPage == $i ? '#3498db' : '#173859' ?>; 
                       color: white;">
                 <?= $i ?>
             </a>

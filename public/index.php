@@ -59,7 +59,7 @@ spl_autoload_register(function ($class_name) {
 
 
 // --------------------------------------------------------------
-// 2. Roteamento (Router Simples) - CORRIGIDO
+// 2. Roteamento (Router Simples)
 // --------------------------------------------------------------
 
 // Remove a URL base (BASE_URL) da URI para simplificar o roteamento
@@ -79,6 +79,7 @@ $uri = trim($uri, '/');
 
 // Define o Controller, Método e Parâmetros
 $segments = explode('/', $uri);
+// Converte o primeiro segmento para ControllerName (Ex: colaborador -> ColaboradorController)
 $controllerName = !empty($segments[0]) ? ucfirst(strtolower($segments[0])) . 'Controller' : 'DashboardController';
 $method = isset($segments[1]) && !empty($segments[1]) ? strtolower($segments[1]) : 'index';
 $params = array_slice($segments, 2);
@@ -100,6 +101,18 @@ if (empty($segments[0]) || strtolower($segments[0]) == 'login') {
     $method = 'logout';
 }
 // --- FIM do Tratamento ---
+
+
+// --------------------------------------------------------------
+// CORREÇÃO DE CASE SENSITIVITY (RHController, CCustoController)
+// --------------------------------------------------------------
+// O roteador gera 'RhController' ou 'CcustoController', mas o nome da classe é todo maiúsculo/correto.
+if ($controllerName === 'RhController') {
+    $controllerName = 'RHController';
+}
+if ($controllerName === 'CcustoController') {
+    $controllerName = 'CCustoController';
+}
 
 // 3. Executa o Controller
 if (class_exists($controllerName)) {

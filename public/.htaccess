@@ -1,16 +1,12 @@
-# public/.htaccess - Roteamento Mínimo para MVC
+# gestao/public/.htaccess
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Define a base de reescrita como o diretório atual. 
-    # Tente comentar esta linha se o erro 500 persistir com ela.
-    # RewriteBase /
+    # Linha RewriteBase / Comentada ou Removida
+    # RewriteBase / 
 
-    # Se a requisição não for para um arquivo real (CSS, JS, imagens)
     RewriteCond %{REQUEST_FILENAME} !-f
-    # E não for para um diretório real (como /css, /js)
     RewriteCond %{REQUEST_FILENAME} !-d
-    # Redireciona tudo para o index.php
     RewriteRule ^(.*)$ index.php [L]
 </IfModule>

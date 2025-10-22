@@ -24,7 +24,7 @@ if (!defined('BASE_URL')) exit;
         <div class="shield-column">
             <div style="text-align: center;">
                 <img src="<?= BASE_URL ?>images/logo_reframax.png" alt="Reframax Logo" class="logo-login-shield">
-                <p style="color: #FF6600; font-size: 14px; letter-spacing: 5px; margin-top: 10px;">SISTEMA GESTIVO</p>
+                <p style="color: #3498db; font-size: 14px; letter-spacing: 5px; margin-top: 10px;">SISTEMA GESTIVO</p>
             </div>
         </div>
 

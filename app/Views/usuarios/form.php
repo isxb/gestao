@@ -10,10 +10,10 @@ $buttonText = $isEditing ? 'Atualizar Dados' : 'Cadastrar Usuário';
 $currentLevel = $usuario['nivel_acesso'] ?? 'Colaborador';
 ?>
 
-<h1 style="color: #FF6600;"><?= $pageTitle ?></h1>
+<h1 style="color: #3498db;"><?= $pageTitle ?></h1>
 
 <div class="card-chart" style="max-width: 900px; margin: 0 auto;">
-    <form action="<?= BASE_URL ?>usuarios/salvar" method="POST">
+    <form action="<?= BASE_URL ?>usuario/salvar" method="POST">
         
         <?php if ($isEditing): ?>
             <input type="hidden" name="id_usuario" value="<?= htmlspecialchars($usuario['id_usuario']) ?>">
@@ -69,8 +69,8 @@ $currentLevel = $usuario['nivel_acesso'] ?? 'Colaborador';
 
             </fieldset>
 
-            <fieldset style="border: 1px solid #FF6600; padding: 20px; border-radius: 8px;">
-                <legend style="color: #FF6600; font-weight: 600; padding: 0 10px;">Gerenciamento e Segurança</legend>
+            <fieldset style="border: 1px solid #3498db; padding: 20px; border-radius: 8px;">
+                <legend style="color: #3498db; font-weight: 600; padding: 0 10px;">Gerenciamento e Segurança</legend>
                 
                 <div class="form-group">
                     <label>Senha <?= $isEditing ? '(Deixe em branco para não alterar)' : '<span style="color: #e74c3c;">*</span>' ?></label>
@@ -100,10 +100,10 @@ $currentLevel = $usuario['nivel_acesso'] ?? 'Colaborador';
         </div>
 
         <div class="form-buttons" style="margin-top: 20px;">
-            <button type="submit" class="btn-primary-action" style="background-color: #FF6600;">
+            <button type="submit" class="btn-primary-action" style="background-color: #3498db;">
                 <i class="fas fa-save"></i> <?= $buttonText ?>
             </button>
-            <a href="<?= BASE_URL ?>usuarios" class="btn-secondary" style="text-decoration: none; text-align: center; border: 1px solid #7f8c8d; color: #7f8c8d; padding: 12px 15px;">
+            <a href="<?= BASE_URL ?>usuario" class="btn-secondary" style="text-decoration: none; text-align: center; border: 1px solid #7f8c8d; color: #7f8c8d; padding: 12px 15px;">
                 <i class="fas fa-times"></i> Cancelar
             </a>
         </div>

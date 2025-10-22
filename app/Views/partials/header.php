@@ -1,6 +1,13 @@
 <?php
 // app/Views/partials/header.php
 if (!defined('BASE_URL')) exit; 
+
+// FIX 1: Proteção contra inclusão recursiva (Adicionar no início do arquivo)
+if (defined('HEADER_LOADED')) {
+    // Isso deve parar a execução do script e evitar o loop de conteúdo
+    die('Erro Fatal: Tentativa de inclusão recursiva do Header.');
+}
+define('HEADER_LOADED', true);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -14,8 +21,12 @@ if (!defined('BASE_URL')) exit;
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="dashboard-page">
-    <?php require_once('sidebar.php'); ?>
-    <?php require_once('navbar.php'); ?>
+    <?php 
+    // FIX 2: Usa o caminho absoluto (VIEW_PATH) para forçar o include correto
+    // O arquivo sidebar.php e navbar.php estão na pasta 'partials'
+    require_once(VIEW_PATH . 'partials/sidebar.php'); 
+    require_once(VIEW_PATH . 'partials/navbar.php'); 
+    ?>
 
     <div class="sidebar-overlay"></div>
 

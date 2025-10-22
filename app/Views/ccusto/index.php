@@ -13,7 +13,7 @@ if (isset($_SESSION['feedback'])) {
 }
 ?>
 
-<h1 style="color: #FF6600;">Gerenciamento de Centros de Custo (C.C.)</h1>
+<h1 style="color: #3498db;">Gerenciamento de Centros de Custo (C.C.)</h1>
 
 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
     <a href="<?= BASE_URL ?>ccusto/form" class="btn-primary-action" style="width: auto; padding: 10px 20px; background-color: #2ecc71;">
@@ -42,7 +42,7 @@ if (isset($_SESSION['feedback'])) {
             <?php foreach ($ccustos as $cc): ?>
                 <tr style="border-bottom: 1px solid #2a528a; background-color: <?= $cc['status'] == 'Inativo' ? 'rgba(231, 76, 60, 0.1)' : 'transparent' ?>;">
                     <td style="padding: 10px;"><?= htmlspecialchars($cc['id_cc']) ?></td>
-                    <td style="padding: 10px; font-weight: 600; color: #FF6600;"><?= htmlspecialchars($cc['sigla_cc']) ?></td>
+                    <td style="padding: 10px; font-weight: 600; color: #3498db;"><?= htmlspecialchars($cc['sigla_cc']) ?></td>
                     <td style="padding: 10px;"><?= htmlspecialchars($cc['nome_cc']) ?></td>
                     <td style="padding: 10px;">
                         <span style="padding: 4px 8px; border-radius: 4px; font-size: 0.8em; 
